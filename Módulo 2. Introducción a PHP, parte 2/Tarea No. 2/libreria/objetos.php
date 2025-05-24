@@ -24,14 +24,14 @@ class Personaje
     public $comida_favorita;
 }
 
-class Datos
+$tipos_de_obra = array(
+    "pelicula" => "Pelicula",
+    "serie" => "Serie",
+    "documental" => "Documental"
+);
+
+function tipo_de_obra($tipo)
 {
-    public static function Tipos_de_Obra()
-    {
-        return array(
-            "pelicula" => "Pelicula",
-            "serie" => "Serie",
-            "documental" => "Documental"
-        );
-    }
+    global $tipos_de_obra;
+    return $tipos_de_obra[$tipo] ?? null;
 }

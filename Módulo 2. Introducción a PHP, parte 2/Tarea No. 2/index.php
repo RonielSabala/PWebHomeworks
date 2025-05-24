@@ -1,5 +1,6 @@
 <?php
 include "libreria/principal.php";
+
 plantilla::aplicar();
 ?>
 
@@ -21,36 +22,36 @@ plantilla::aplicar();
     </thead>
     <tbody>
         <?php
-            // Cargar los datos de las obras
-            if (is_dir("datos")){
-                $archivos = scandir("datos");
-                foreach ($archivos as $archivo) {
-                    $ruta = "datos/" . $archivo;
-                    if (is_file($ruta)) {
-                        $json = file_get_contents($ruta);
-                        $obra = json_decode($json);
-                        ?>
-                            <tr>
-                                <td>
-                                    <img src="<?= $obra->foto_url ?>" alt="Foto de <?= $obra->nombre ?>" height="100">
-                                </td>
-                                <td><?= Datos::Tipos_de_Obra()[$obra->tipo] ?></td>
-                                <td><?= $obra->nombre ?></td>
-                                <td>
-                                    <?= count($obra->personajes) ?>
-                                </td>
-                                <td><?= $obra->autor ?></td>
-                                <td><?= $obra->pais ?></td>
-                                <td>
-                                    <a href="editar.php?id=<?= $obra->codigo ?>" class="btn btn-warning">Editar</a>
-                                    <a href="personajes.php?id=<?= $obra->codigo ?>" class="btn btn-info">Personajes</a>
-                                    <a href="detalle.php?id=<?= $obra->codigo ?>" class="btn btn-success">Detalles</a>
-                                </td>
-                            </tr>
-                        <?php
-                    }
+        // Cargar los datos de las obras
+        if (is_dir("datos")) {
+            $archivos = scandir("datos");
+            foreach ($archivos as $archivo) {
+                $ruta = "datos/" . $archivo;
+                if (is_file($ruta)) {
+                    $json = file_get_contents($ruta);
+                    $obra = json_decode($json);
+        ?>
+                    <tr>
+                        <td>
+                            <img src="<?= $obra->foto_url ?>" alt="Foto de <?= $obra->nombre ?>" height="100">
+                        </td>
+                        <td><?= tipo_de_obra($obra->tipo) ?></td>
+                        <td><?= $obra->nombre ?></td>
+                        <td>
+                            <?= count($obra->personajes) ?>
+                        </td>
+                        <td><?= $obra->autor ?></td>
+                        <td><?= $obra->pais ?></td>
+                        <td>
+                            <a href="editar.php?id=<?= $obra->codigo ?>" class="btn btn-warning">Editar</a>
+                            <a href="detalle.php?id=<?= $obra->codigo ?>" class="btn btn-info">Detalles</a>
+                            <a href="personajes.php?id=<?= $obra->codigo ?>" class="btn btn-success">Personajes</a>
+                        </td>
+                    </tr>
+        <?php
                 }
             }
+        }
         ?>
     </tbody>
 </table>
