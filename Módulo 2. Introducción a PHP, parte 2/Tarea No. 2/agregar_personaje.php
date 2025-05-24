@@ -20,7 +20,7 @@ if ($_POST) {
 
     $obra->personajes[] = $personaje;
     guardarObra($obra, "Personaje guardado exitosamente.", $ruta_personajes);
-    exit;
+    exit();
 }
 ?>
 

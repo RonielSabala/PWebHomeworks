@@ -3,14 +3,14 @@ include "libreria/principal.php";
 
 plantilla::aplicar();
 
-// Crear una instancia de la clase Obra
+// Crear una nueva Obra
 $obra = new Obra();
 $id = $_GET['id'];
 $cedula = $_GET['cedula'];
 $ruta = "datos/" . $id . ".json";
 if (!is_file($ruta)) {
     mostrarMensaje("Error al cargar la obra.", "danger");
-    exit;
+    exit();
 }
 
 $json = file_get_contents($ruta);
@@ -27,7 +27,7 @@ foreach ($obra->personajes as $p) {
 
 if ($personaje == null) {
     mostrarMensaje("Error al cargar el personaje.", "danger");
-    exit;
+    exit();
 }
 
 // Eliminar el personaje
@@ -39,4 +39,4 @@ $obra->personajes = array_filter($obra->personajes, function ($p) use ($cedula) 
 file_put_contents($ruta, json_encode($obra));
 echo "<div class='text-center'><div class='alert alert-success'>Personaje eliminado exitosamente</div>";
 echo "<a href='personajes.php?id=" . $obra->codigo . "' class='btn btn-primary'>Volver</a></div>";
-exit;
+exit();

@@ -26,7 +26,7 @@ function cargarObra($verify = false)
     plantilla::aplicar();
     if ($verify && !(isset($_GET['id']) && file_exists($ruta))) {
         mostrarMensaje("Error al cargar la obra.", "danger");
-        exit;
+        exit();
     }
 
     return $obra;
@@ -42,6 +42,7 @@ function guardarObra($obra, $mensajeExito, $ruta_final = "index.php")
         $ruta = "datos/" . $obra->codigo . ".json";
         $json = json_encode($obra);
         file_put_contents($ruta, $json);
+
         $mensaje = $mensajeExito;
         $tipo = "success";
     } else {

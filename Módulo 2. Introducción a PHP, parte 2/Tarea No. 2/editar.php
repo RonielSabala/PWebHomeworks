@@ -12,7 +12,7 @@ if ($_POST) {
     $obra->autor = $_POST['autor'];
 
     guardarObra($obra, "Obra guardada exitosamente.", "index.php");
-    exit;
+    exit();
 }
 ?>
 
