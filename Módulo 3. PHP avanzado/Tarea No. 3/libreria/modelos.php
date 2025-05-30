@@ -1,36 +1,45 @@
 <?php
 
-class Personaje
+class ModeloBase
 {
     public $idx = "";
-    public $identificacion = "";
     public $nombre = "";
+}
+
+class Personaje extends ModeloBase
+{
+    public $identificacion = "";
     public $apellido = "";
     public $fecha_nacimiento = "";
     public $foto_personaje = "";
-    public $profesion = "";
+    public $profesion_idx = "";
     public $nivel_experiencia = 0;
 
-    public function edad()
+    public function __get($name)
     {
-        if (empty($this->fecha_nacimiento)) {
-            return 0;
+        if ($name === 'edad') {
+            if (empty($this->fecha_nacimiento)) {
+                return 0;
+            }
+
+            $fechaActual = time();
+            $fechaNacimiento = strtotime($this->fecha_nacimiento);
+            $edad = date('Y', $fechaActual) - date('Y', $fechaNacimiento);
+            if (date('md', $fechaActual) < date('md', $fechaNacimiento)) {
+                $edad--;
+            }
+
+            return $edad;
         }
 
-        $fechaNacimiento = strtotime($this->fecha_nacimiento);
-        $fechaActual = time();
-        $edad = date('Y', $fechaActual) - date('Y', $fechaNacimiento);
-        if (date('md', $fechaActual) < date('md', $fechaNacimiento)) {
-            $edad--;
+        $profesion = Dbx::get("profesiones", $this->profesion_idx);
+        if ($name === 'profesion') {
+            return $profesion ? $profesion->nombre : "N/A";
         }
 
-        return $edad;
-    }
-
-    public function salario_mensual()
-    {
-        $profesion = Dbx::get("profesiones", $this->profesion);
-        return $profesion ? $profesion->salario_mensual : 0;
+        if ($name === 'salario_mensual') {
+            return $profesion ? $profesion->salario_mensual : 0;
+        }
     }
 
     public function __construct($data = [])
@@ -47,11 +56,8 @@ class Personaje
     }
 }
 
-class Profesion
+class Profesion extends ModeloBase
 {
-    public $idx = "";
-    public $codigo = "";
-    public $nombre = "";
     public $categoria = "";
     public $salario_mensual = 0;
 

@@ -1,40 +1,40 @@
 <?php
-
 include("libreria/principal.php");
-
 define("PAGINA_ACTUAL", "estadisticas");
 
+// Colecciones de datos
 $personajes = Dbx::list("personajes");
 $profesiones = Dbx::list("profesiones");
+$n_personajes = count($personajes);
+$n_profesiones = count($profesiones);
 
+// Variables para almacenar estadísticas
+$datos = [];
+$labels = [];
+$exp_total = 0;
 $edad_total = 0;
-$excom = 0;
+$salario_total = 0;
+$salario_min = null;
+$salario_max = null;
+$prof_distribution = [];
+$nombre_persona_mas_pagada = "";
+$salario_persona_mas_pagada = 0;
 
-$salario_graph = [];
-
-$mayor_salario = null;
-$menor_salario = null;
-$salario_prom = 0;
-$per_mayor_salario = [
-    "nombre" => null,
-    "salario" => 0,
-];
-
-$personasXprofesion = [];
 foreach ($profesiones as $profesion) {
-    $salario_prom += $profesion->salario_mensual;
-    $salario_graph[$profesion->nombre] = $profesion->salario_mensual;
+    $labels[] = $profesion->nombre;
+    $datos[] = $profesion->salario_mensual;
+    $salario_total += $profesion->salario_mensual;
 
-    if ($mayor_salario === null || $profesion->salario_mensual > $mayor_salario->salario_mensual) {
-        $mayor_salario = $profesion;
+    if ($salario_min === null || $salario_min->salario_mensual < $profesion->salario_mensual) {
+        $salario_min = $profesion;
     }
 
-    if ($menor_salario === null || $profesion->salario_mensual < $menor_salario->salario_mensual) {
-        $menor_salario = $profesion;
+    if ($salario_max === null || $salario_max->salario_mensual > $profesion->salario_mensual) {
+        $salario_max = $profesion;
     }
 
-    if (!isset($personasXprofesion[$profesion->idx])) {
-        $personasXprofesion[$profesion->idx] = [
+    if (!isset($prof_distribution[$profesion->idx])) {
+        $prof_distribution[$profesion->idx] = [
             "nombre" => $profesion->nombre,
             "cantidad" => 0
         ];
@@ -42,51 +42,32 @@ foreach ($profesiones as $profesion) {
 }
 
 foreach ($personajes as $personaje) {
-    $edad_total += $personaje->edad();
-    $excom += $personaje->nivel_experiencia;
+    $edad_total += $personaje->edad;
+    $exp_total += $personaje->nivel_experiencia;
 
-    $salario = $personaje->salario_mensual();
-    if ($per_mayor_salario["salario"] < $salario) {
-        $per_mayor_salario = [
-            "nombre" => $personaje->nombre,
-            "salario" => $salario,
-        ];
+    if (isset($prof_distribution[$personaje->profesion_idx])) {
+        $prof_distribution[$personaje->profesion_idx]['cantidad']++;
     }
 
-    if (isset($personasXprofesion[$personaje->profesion])) {
-        $personasXprofesion[$personaje->profesion]['cantidad']++;
+    $salario = $personaje->salario_mensual;
+    if ($salario_persona_mas_pagada < $salario) {
+        $salario_persona_mas_pagada = $salario;
+        $nombre_persona_mas_pagada = $personaje->nombre;
     }
 }
-
-$eprom = $edad_total / count($personajes);
-$excom = $excom / count($personajes);
-$salario_prom = $salario_prom / count($profesiones);
-
-$data = [
-    'personajes' => count($personajes),
-    'profesiones' => count($profesiones),
-    'edad_promedio' => $eprom,
-    'nivel_experiencia_comun' => $excom,
-];
 
 plantilla::aplicar();
 ?>
 
-<!-- Font Awesome para íconos -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<h1 class="text-center mb-4">🌸 Estadísticas del Mundo Barbie 🌸</h1>
-
-<!-- Indicadores -->
+<h2 class="text-center mb-5">Estadísticas del Mundo Barbie</h2>
 <div class="row g-4 mb-4">
     <div class="col-md-3">
         <div class="card text-white bg-primary h-100">
             <div class="card-body">
                 <h5 class="card-title"> <i class="fa fa-users"></i> Personajes</h5>
-                <p class="card-text fs-4"><?= $data['personajes']; ?></p>
+                <p class="card-text fs-4"><?= $n_personajes; ?></p>
             </div>
         </div>
     </div>
@@ -94,7 +75,7 @@ plantilla::aplicar();
         <div class="card text-white bg-secondary h-100">
             <div class="card-body">
                 <h5 class="card-title"> <i class="fa fa-briefcase"></i> Profesiones</h5>
-                <p class="card-text fs-4"> <?= $data['profesiones']; ?></p>
+                <p class="card-text fs-4"> <?= $n_profesiones; ?></p>
             </div>
         </div>
     </div>
@@ -102,7 +83,7 @@ plantilla::aplicar();
         <div class="card text-white bg-success h-100">
             <div class="card-body">
                 <h5 class="card-title"> <i class="fa fa-heartbeat"></i> Edad Promedio</h5>
-                <p class="card-text fs-4"> <?= number_format($data['edad_promedio'], 0); ?> años</p>
+                <p class="card-text fs-4"> <?= obtener_promedio($edad_total, $n_personajes, 0); ?> años</p>
             </div>
         </div>
     </div>
@@ -110,13 +91,12 @@ plantilla::aplicar();
         <div class="card text-white bg-warning h-100">
             <div class="card-body">
                 <h5 class="card-title"> <i class="fa fa-star"></i> Nivel de experiencia común</h5>
-                <p class="card-text fs-4"> <?= number_format($data['nivel_experiencia_comun'], 2); ?></p>
+                <p class="card-text fs-4"> <?= obtener_promedio($exp_total, $n_personajes); ?></p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Detalles y distribuciones -->
 <div class="row g-4 mb-4">
     <div class="col-md-6">
         <div class="card h-100">
@@ -124,8 +104,10 @@ plantilla::aplicar();
                 <h5 class="card-title">Distribución de personajes por categoria</h5>
                 <ul class="list-group">
                     <?php
-                    foreach ($personasXprofesion as $idx => $fila) {
-                        echo "<li class='list-group-item'>{$fila['nombre']}: {$fila['cantidad']} personajes</li>";
+                    foreach ($prof_distribution as $profesion) {
+                        $cantidad = $profesion['cantidad'];
+                        $texto = ($cantidad === 1) ? "personaje" : "personajes";
+                        echo "<li class='list-group-item'>{$profesion['nombre']}: {$cantidad} {$texto}</li>";
                     }
                     ?>
                 </ul>
@@ -136,27 +118,21 @@ plantilla::aplicar();
         <div class="card h-100">
             <div class="card-body">
                 <h5 class="card-title">Salarios destacados</h5>
-                <p><strong>Profesión con mayor salario:</strong> <?= $mayor_salario; ?></p>
-                <p><strong>Profesión con menor salario:</strong> <?= $menor_salario; ?></p>
-                <p><strong>Salario promedio:</strong> RD$<?= $salario_prom; ?></p>
-                <p><strong>Personaje con mayor salario:</strong> <?= $per_mayor_salario["nombre"] . " (RD$" . $per_mayor_salario["salario"]; ?>)</p>
+                <p><strong>Profesión con mayor salario:</strong> <?= $salario_min; ?></p>
+                <p><strong>Profesión con menor salario:</strong> <?= $salario_max; ?></p>
+                <p><strong>Salario promedio:</strong> <?= ($promedio = obtener_promedio($salario_total, $n_profesiones)) ? "$" . "RD " . $promedio : ""; ?></p>
+                <p><strong>Personaje con mayor salario:</strong> <?= $nombre_persona_mas_pagada && $salario_persona_mas_pagada ? $nombre_persona_mas_pagada . " (" . "$" . "RD " . $salario_persona_mas_pagada . ")" : ""; ?></p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Gráfico de los salarios -->
 <div class="card mb-4">
     <div class="card-body">
-        <h5 class="card-title text-center">Distribución de salarios por categoría de profesión</h5>
+        <h4 class="card-title text-center">Distribución de salarios por categoría de profesión.</h4>
         <canvas id="salaryChart" height="100"></canvas>
     </div>
 </div>
-
-<?php
-$labels = array_keys($salario_graph);
-$datos = array_values($salario_graph);
-?>
 
 <script>
     const ctx = document.getElementById('salaryChart').getContext('2d');
@@ -165,10 +141,16 @@ $datos = array_values($salario_graph);
         data: {
             labels: <?= json_encode($labels); ?>,
             datasets: [{
-                label: 'Salario Promedio (RD$)',
+                label: 'Salario Promedio ($RD)',
                 data: <?= json_encode($datos); ?>,
-                backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: '#fff',
                 borderWidth: 1
             }]
         },
@@ -178,7 +160,7 @@ $datos = array_values($salario_graph);
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        callback: value => "RD$" + value.toLocaleString()
+                        callback: value => "$RD" + value.toLocaleString()
                     }
                 }
             }
