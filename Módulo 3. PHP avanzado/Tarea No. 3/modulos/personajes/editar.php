@@ -1,6 +1,6 @@
 <?php
 include("libreria/principal.php");
-$personaje = cargar_editar(Personaje::class, "personajes");
+$personaje = cargar_editar("personajes", Personaje::class);
 
 plantilla::aplicar();
 ?>

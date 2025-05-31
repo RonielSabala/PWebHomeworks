@@ -4,21 +4,21 @@ plantilla::aplicar();
 ?>
 
 <style>
+    img {
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
     p {
         font-family: Arial, sans-serif;
         font-size: 16px;
         color: #333;
         line-height: 1.5;
     }
-
-    img {
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
 </style>
 
 <p>
-    ¡Bienvenido al sitio web de Barbie!<br>Aquí podrás encontrar información sobre
+    ¡Bienvenido al sitio web del Mundo Barbie!<br>Aquí podrás encontrar información sobre
     los personajes, profesiones y estadísticas del mundo de Barbie.
 </p>
 

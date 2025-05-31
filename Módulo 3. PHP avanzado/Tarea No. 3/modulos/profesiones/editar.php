@@ -1,6 +1,6 @@
 <?php
 include("libreria/principal.php");
-$profesion = cargar_editar(Profesion::class, "profesiones");
+$profesion = cargar_editar("profesiones", Profesion::class);
 
 plantilla::aplicar();
 ?>

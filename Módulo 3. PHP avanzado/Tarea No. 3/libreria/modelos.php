@@ -1,12 +1,12 @@
 <?php
 
-class ModeloBase
+class BaseModel
 {
     public $idx = "";
     public $nombre = "";
 }
 
-class Personaje extends ModeloBase
+class Personaje extends BaseModel
 {
     public $identificacion = "";
     public $apellido = "";
@@ -56,7 +56,7 @@ class Personaje extends ModeloBase
     }
 }
 
-class Profesion extends ModeloBase
+class Profesion extends BaseModel
 {
     public $categoria = "";
     public $salario_mensual = 0;

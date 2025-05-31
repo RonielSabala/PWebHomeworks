@@ -81,7 +81,7 @@ class plantilla
 
                 .author {
                     color: #EE4EC5;
-                    font-size: 20px;
+                    font-size: 18px;
                     font-family: cursive;
                 }
             </style>

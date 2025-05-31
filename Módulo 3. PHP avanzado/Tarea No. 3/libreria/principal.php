@@ -13,10 +13,14 @@ function base_url($path = "")
 
 function obtener_promedio($a, $b, $decimales = 2)
 {
-    return $a === 0 ? 0 : number_format($b > 0 ? $a / $b : 0, $decimales);
+    if ($a === 0) {
+        return 0;
+    }
+
+    return number_format($b > 0 ? $a / $b : 0, $decimales);
 }
 
-function cargar_editar($CollectionClass, $collection_name)
+function cargar_editar($collection_name, $CollectionClass)
 {
     if (!defined("PAGINA_ACTUAL")) {
         define("PAGINA_ACTUAL", $collection_name);
@@ -45,10 +49,12 @@ function cargar_eliminar($collection)
         plantilla::aplicar();
     }
 
+    // Variables
     $ruta = "libreria/datax/$collection";
     $idx = isset($_GET['idx']) ? $_GET['idx'] : "";
     $file = "{$ruta}/{$idx}dat";
 
+    // Manejar error
     if ($idx === "" || !is_dir($ruta) || !file_exists($file)) {
         echo "
         <div class='text-center'>
@@ -60,6 +66,7 @@ function cargar_eliminar($collection)
         exit;
     }
 
+    // Eliminar archivo
     unlink($file);
     echo "<div class='text-center'><div class='alert alert-success'>Eliminado exitosamente!</div>";
     echo "<a href='lista.php' class='btn btn-primary'>Volver</a></div>";

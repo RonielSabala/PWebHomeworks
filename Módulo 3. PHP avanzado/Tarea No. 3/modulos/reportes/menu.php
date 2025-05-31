@@ -2,7 +2,7 @@
 include("libreria/principal.php");
 define("PAGINA_ACTUAL", "estadisticas");
 
-// Colecciones de datos
+// Colecciones
 $personajes = Dbx::list("personajes");
 $profesiones = Dbx::list("profesiones");
 $n_personajes = count($personajes);
