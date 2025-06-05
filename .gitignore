@@ -400,5 +400,7 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-# Ignore presentation preset
-Preset de presentación.docx
+# Private Documents
+*.pdf
+*.docx
+*.pptx
