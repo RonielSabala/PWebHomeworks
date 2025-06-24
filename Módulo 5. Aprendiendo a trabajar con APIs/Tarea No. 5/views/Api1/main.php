@@ -29,7 +29,7 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>1. Predicción de Género</strong></h1>
-        <p class="lead">Clasifica un nombre como masculino o femenino!</p>
+        <p class="lead">Ingresa un nombre para clasificarlo como masculino o femenino.</p>
     </div>
 
     <form method="post" class="shadow-sm p-4 rounded">

@@ -7,6 +7,7 @@ Preset::apply();
 
 // Variables del formulario
 $pokeName = "";
+$audioUrl = "https://play.pokemonshowdown.com/audio/cries";
 
 // Variables de respuesta
 $data  = null;
@@ -29,7 +30,7 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>5. Información de un Pokémon</strong></h1>
-        <p class="lead">Ingresa el nombre de un Pokémon para ver su información.</p>
+        <p class="lead">Ingresa un Pokémon para ver su información.</p>
     </div>
 
     <form method="post" class="shadow-sm p-4 rounded">
@@ -45,9 +46,6 @@ if ($error !== null) {
             $abilities = array_map(function ($a) {
                 return $a['ability']['name'];
             }, $data['abilities'] ?? []);
-
-            // URL de sonido
-            $audioUrl = "https://play.pokemonshowdown.com/audio/cries/{$pokeName}.mp3";
         ?>
             <div class="card mb-3">
                 <div class="card-body d-flex align-items-center">
@@ -63,12 +61,10 @@ if ($error !== null) {
                                 <li class="text-capitalize"><?= htmlspecialchars($ability) ?></li>
                             <?php endforeach; ?>
                         </ul>
-                        <?php if ($audioUrl): ?>
-                            <audio controls>
-                                <source src="<?= $audioUrl ?>" type="audio/mpeg">
-                                Tu navegador no soporta reproducción de audio.
-                            </audio>
-                        <?php endif; ?>
+                        <audio controls>
+                            <source src='<?= $audioUrl . "/{$pokeName}.mp3" ?>' type="audio/mpeg">
+                            Tu navegador no soporta reproducción de audio.
+                        </audio>
                     </div>
                 </div>
             </div>

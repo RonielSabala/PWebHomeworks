@@ -29,7 +29,7 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>2. Predicción de Edad</strong></h1>
-        <p class="lead">Ingresa un nombre para estimar la edad de la persona.</p>
+        <p class="lead">Ingresa un nombre para estimar su edad.</p>
     </div>
 
     <form method="post" class="shadow-sm p-4 rounded">

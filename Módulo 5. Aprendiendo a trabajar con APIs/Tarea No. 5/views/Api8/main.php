@@ -1,7 +1,7 @@
 <?php
 include("library/principal.php");
 
-// Cargar la api key
+// Cargar el API key
 require_once __DIR__ . '/../../dependencies/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();

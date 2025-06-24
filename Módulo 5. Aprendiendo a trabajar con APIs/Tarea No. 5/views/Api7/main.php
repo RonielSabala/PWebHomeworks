@@ -8,6 +8,8 @@ Preset::apply();
 // Variables del formulario
 $monto = '';
 $monedaBase = 'USD';
+$monedas = ['DOP', 'EUR', 'GBP', 'MXN'];
+$monedasDisponibles = ['USD', 'EUR', 'GBP'];
 
 // Variables de respuesta
 $data = null;
@@ -44,9 +46,11 @@ if ($error !== null) {
             <div class="col-md-6">
                 <label for="monedaBase" class="form-label">Moneda base</label>
                 <select id="monedaBase" name="monedaBase" class="form-select">
-                    <option value="USD" <?= $monedaBase === 'USD' ? 'selected' : '' ?>>USD</option>
-                    <option value="EUR" <?= $monedaBase === 'EUR' ? 'selected' : '' ?>>EUR</option>
-                    <option value="GBP" <?= $monedaBase === 'GBP' ? 'selected' : '' ?>>GBP</option>
+                    <?php foreach ($monedasDisponibles as $moneda): ?>
+                        <option value="<?= htmlspecialchars($moneda) ?>" <?= $monedaBase === $moneda ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($moneda) ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>
@@ -54,7 +58,6 @@ if ($error !== null) {
         <?php if ($data): ?>
             <div class="row mt-4">
                 <?php
-                $monedas = ['DOP', 'EUR', 'GBP', 'MXN'];
                 foreach ($monedas as $moneda) {
                     if (isset($data['rates'][$moneda])) {
                         $tasa = $data['rates'][$moneda];

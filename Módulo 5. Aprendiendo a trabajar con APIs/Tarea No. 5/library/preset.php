@@ -14,14 +14,6 @@ function getActiveClass($targetPage)
     return "api-link nav-link " . (($pagina_actual === $targetPage) ? 'active' : '');
 }
 
-function base_url($path = "")
-{
-    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
-    $host = $_SERVER['HTTP_HOST'];
-    $path = trim($path, "/");
-    return $protocol . $host . "/" . $path;
-}
-
 class Preset
 {
     public static $instance = null;
@@ -45,13 +37,13 @@ class Preset
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
             <link rel="stylesheet" href="/library/styles.css">
-            <title>Portal web</title>
+            <title>Tarea No. 5. Roniel Sabala</title>
         </head>
         <body>
             <div class="container">
                 <div class="text-center" style="margin-bottom: 30px;">
                     <h1 class="title">Portal Web</h1>
-                    <p">Aquí podrás encontrar una serie de APIs a tu disposición.</p>
+                    <p style="font-size: 18px; margin-top: 10px;">Aquí podrás encontrar una serie de APIs a tu disposición.</p>
                 </div>
                 <div class="divMenu">
                     <ul class="nav nav-tabs">
@@ -85,7 +77,6 @@ class Preset
                 </div>
                 <footer style="margin-top: 40px;">
                     <hr>
-                    <p class="text-center">© 2025 Portal web</p>
                     <p class="author text-center">
                         Desarrollado X <strong>Roniel Sabala ♥</strong>
                     </p>

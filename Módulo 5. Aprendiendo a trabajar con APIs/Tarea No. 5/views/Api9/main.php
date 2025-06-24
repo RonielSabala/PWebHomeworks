@@ -29,7 +29,7 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>9. Datos de un país</strong></h1>
-        <p class="lead">Ingresa el nombre de un país para mostrar sus datos principales.</p>
+        <p class="lead">Ingresa el nombre de un país para mostrar sus datos.</p>
     </div>
 
     <form method="post" class="shadow-sm p-4 rounded">

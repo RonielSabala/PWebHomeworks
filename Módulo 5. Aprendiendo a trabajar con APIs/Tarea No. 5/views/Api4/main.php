@@ -1,7 +1,7 @@
 <?php
 include("library/principal.php");
 
-// Cargar la api key
+// Cargar el API key
 require_once __DIR__ . '/../../dependencies/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
@@ -40,7 +40,7 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>4. Clima en República Dominicana</strong></h1>
-        <p class="lead">Ingresa una ciudad para ver el clima actual.</p>
+        <p class="lead">Ingresa una ciudad para ver su clima actual.</p>
     </div>
 
     <form method="post" class="shadow-sm p-4 rounded">

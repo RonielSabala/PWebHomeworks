@@ -23,16 +23,16 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>10. Generador de chistes</strong></h1>
-        <p class="lead">Disfruta de un chiste aleatorio cada vez que visites esta página.</p>
+        <p class="lead">Ríete de un chiste aleatorio cada vez que entres a la página.</p>
     </div>
 
     <?php if ($data): ?>
-        <div class="card shadow-sm mb-3">
+        <div class="card">
             <div class="card-body">
                 <p class="h5 mb-3"><?= htmlspecialchars($data['setup'] ?? '...') ?></p>
                 <p class="fw-bold"><?= htmlspecialchars($data['punchline'] ?? '') ?></p>
             </div>
         </div>
-        <a href="?" class="btn btn-success btn-lg mt-4">Otro chiste</a>
+        <a href="?" class="btn btn-success btn-lg mt-4">Otro chiste!</a>
     <?php endif; ?>
 </div>

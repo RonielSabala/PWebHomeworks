@@ -1,12 +1,20 @@
 <?php
-include("plantilla.php");
+include("preset.php");
 
-function showAlert($mensaje, $tipo = "success", $ruta_final = "index.php")
+function base_url($path = "")
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+    $host = $_SERVER['HTTP_HOST'];
+    $path = trim($path, "/");
+    return $protocol . $host . "/" . $path;
+}
+
+function showAlert($message, $type = "success", $route = "index.php")
 {
     echo "
     <div class='text-center'>
-        <div class='alert alert-$tipo'>$mensaje</div>
-        <a href='$ruta_final' class='btn btn-primary'>Volver</a>
+        <div class='alert alert-$type'>$message</div>
+        <a href='$route' class='btn btn-primary'>Volver</a>
     </div>
     ";
 }

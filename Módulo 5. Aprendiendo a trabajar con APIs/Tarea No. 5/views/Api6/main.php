@@ -30,7 +30,7 @@ if ($error !== null) {
 <div class="container" style="max-width: 1000px;">
     <div class="header">
         <h1 class="display-5"><strong>6. Noticias desde WordPress</strong></h1>
-        <p class="lead">Selecciona una página de noticias para extraer las últimas 3 entradas.</p>
+        <p class="lead">Selecciona una página de noticias para extraer las últimas 3 noticias.</p>
     </div>
 
     <form method="post" class="shadow-sm p-4 rounded">
