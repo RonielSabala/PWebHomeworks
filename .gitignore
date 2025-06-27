@@ -401,7 +401,8 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Private data
+.env
 *.pdf
 *.docx
 *.pptx
-.env
+Plantillas
