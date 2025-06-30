@@ -4,6 +4,6 @@
     <form method="post">
         <input type="hidden" name="confirm" value="yes">
         <button type="submit" class="btn btn-danger me-2">Sí, eliminar</button>
-        <a href="index.php" class="btn btn-secondary">Cancelar</a>
+        <a href="home.php" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

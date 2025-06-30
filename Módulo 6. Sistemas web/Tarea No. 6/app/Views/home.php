@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/pages/index.css">
+<link rel="stylesheet" href="/css/pages/home.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
 
 <h2>Listado de personajes</h2>

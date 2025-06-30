@@ -2,6 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `serie_db` /*!40100 DEFAULT CHARACTER SET utf8mb4
 USE `serie_db`;
 -- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
+-- Host: localhost    Database: serie_db
 -- ------------------------------------------------------
 -- Server version	8.0.42
 
@@ -40,7 +41,7 @@ CREATE TABLE `personajes` (
 
 LOCK TABLES `personajes` WRITE;
 /*!40000 ALTER TABLE `personajes` DISABLE KEYS */;
-INSERT INTO `personajes` VALUES (7,'Rick Sánchez','Blue','Protagonista',10,'https://alfabetajuega.com/hero/2021/01/ac5152b9f7f50781b2b01e35463fc4e6.jpg?width=768&aspect_ratio=16:9&format=nowebp'),(8,'Morty Smith','Marrón','Protagonista',1,'https://media.vandalsports.com/i/1200x900/1-2024/2024123104927_1.jpg'),(17,'Summer Smith','Naranja','Protagonista',3,'https://imagedelivery.net/LBWXYQ-XnKSYxbZ-NuYGqQ/6d49ad38-94e6-437b-f78e-558dc8647900/banner'),(18,'Jerry Smith','Marrón','Secundario',-1,'https://miro.medium.com/v2/resize:fit:1400/0*qVs6KyWsGhn3YVL4.jpg'),(19,'Beth','Amarillo','Secundario',4,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpa3RAq0VK6BgGBiLJypiekTNnKxmdXo_6aQ&s');
+INSERT INTO `personajes` VALUES (7,'Rick Sánchez','Azul','Protagonista',10,'https://alfabetajuega.com/hero/2021/01/ac5152b9f7f50781b2b01e35463fc4e6.jpg?width=768&aspect_ratio=16:9&format=nowebp'),(8,'Morty Smith','Marrón','Protagonista',8,'https://media.vandalsports.com/i/1200x900/1-2024/2024123104927_1.jpg'),(17,'Summer Smith','Naranja','Protagonista',6,'https://pm1.aminoapps.com/6591/09ed08bf9fd4e53e4ff3a3dbd0c29e48baffbe91_hq.jpg'),(18,'Jerry Smith','Verde oscuro','Protagonista',2,'https://miro.medium.com/v2/resize:fit:1400/0*qVs6KyWsGhn3YVL4.jpg'),(19,'Beth','Rubio','Protagonista',4,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpa3RAq0VK6BgGBiLJypiekTNnKxmdXo_6aQ&s');
 /*!40000 ALTER TABLE `personajes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-30
+-- Dump completed on 2025-06-30 17:07:18

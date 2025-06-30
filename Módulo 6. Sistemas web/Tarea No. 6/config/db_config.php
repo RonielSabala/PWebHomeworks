@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
-// Datos de conexión desde el .env
+// Datos de conexión
 $host = $_ENV['DB_HOST'] ?? null;
 $user = $_ENV['DB_USER'] ?? null;
 $pass = $_ENV['DB_PASS'] ?? null;

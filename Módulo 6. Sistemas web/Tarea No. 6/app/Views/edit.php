@@ -1,13 +1,3 @@
-<?php
-
-use function App\Helpers\showAlert;
-
-if ($id === null) {
-    showAlert('Personaje no encontrado!', 'danger');
-    exit;
-}
-?>
-
 <link rel="stylesheet" href="/css/pages/edit.css">
 
 <div class="edit-card">
@@ -44,6 +34,6 @@ if ($id === null) {
         </div>
 
         <button type="submit" class="btn-primary">Guardar</button>
-        <a href="index.php" class="btn-secondary">Cancelar</a>
+        <a href="home.php" class="btn-secondary">Cancelar</a>
     </form>
 </div>

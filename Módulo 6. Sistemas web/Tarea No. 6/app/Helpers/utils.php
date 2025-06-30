@@ -5,13 +5,14 @@ namespace App\Helpers;
 use PDO;
 use PDOException;
 
+
 function getActiveClass(string $page): string
 {
     $current = defined('CURRENT_PAGE') ? CURRENT_PAGE : '';
     return 'custom-link nav-link' . ($current === $page ? ' active' : '');
 }
 
-function showAlert(string $message, string $type = 'success', string $returnRoute = 'index.php'): void
+function showAlert(string $message, string $type = 'success', string $returnRoute = 'home.php'): void
 {
     echo "
     <div class='text-center'>
@@ -21,7 +22,7 @@ function showAlert(string $message, string $type = 'success', string $returnRout
     ";
 }
 
-function modificarPersonaje($pdo, $sql, $params)
+function modifyCharacter($pdo, $sql, $params)
 {
     try {
         // Ejecutar consulta
@@ -34,7 +35,7 @@ function modificarPersonaje($pdo, $sql, $params)
     }
 }
 
-function obtenerPersonajePorId($pdo, $id)
+function getCharacterById($pdo, $id)
 {
     $sql = "SELECT * FROM personajes WHERE id = ?";
     try {

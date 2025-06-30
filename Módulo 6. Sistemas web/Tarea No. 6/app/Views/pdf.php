@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8" />
 </head>
+
 <body>
     <div class="card">
         <div class="badge">Personaje</div>
@@ -25,7 +27,7 @@
             </p>
         </div>
         <div class="description">
-            <p>Rick and Morty is an American adult animated science fiction sitcom that follows the adventures of Rick Sanchez, a cynical and alcoholic scientist, and his grandson Morty Smith, a kind but easily distressed teenager.</p>
+            <p>Rick y Morty es una comedia animada de ciencia ficción para adultos estadounidense que sigue las aventuras de Rick Sánchez, un científico cínico y alcohólico, y su nieto Morty Smith, un adolescente amable pero que se angustia fácilmente.</p>
         </div>
         <div class="features">
             <h3>Otros personajes:</h3>
@@ -47,4 +49,5 @@
         </div>
     </div>
 </body>
+
 </html>
