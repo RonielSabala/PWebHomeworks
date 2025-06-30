@@ -1,22 +1,19 @@
-# Instrucciones para ejecutar el proyecto
+# Instrucciones para ejecutar el proyecto:
 
-Sigue estos pasos para configurar y ejecutar correctamente el proyecto web:
+Asegúrate de tener:
 
-## 1. Requisitos previos
+- PHP 7.4+
+- MySQL
+- Composer
 
-Asegúrate de tener instalado:
+## 1. Configura la base de datos
 
-- [PHP 7.4+]
-- [MySQL]
-- [Composer]
+Importa el archivo `dump.sql` ubicado en la carpeta `/config` para crear las tablas y datos necesarios.
 
-## 2. Configura la base de datos
+## 2. Configura las variables de entorno
 
-En MySQL Workbench crea una nueva base de datos, importa el archivo `dump.sql` ubicado en la carpeta `/config` para crear las tablas y datos necesarios.
-
-## 3. Configura las variables de entorno
-
-Ve a la carpeta `/config`, crea un archivo `.env` y agrega las siguientes variables y reemplaza los valores según tu configuración:
+Ve a la carpeta `/config` y crea un archivo `.env`.
+Agrega las siguientes variables y reemplaza los valores según tu configuración:
 
 ```env
 DB_HOST="tu_host"
@@ -25,7 +22,7 @@ DB_PASS="tu_contraseña"
 DB_NAME="nombre_de_tu_base_de_datos"
 ```
 
-## 4. Ejecuta el servidor PHP
+## 3. Ejecuta el servidor PHP
 
 Desde la raíz del proyecto, ejecuta el siguiente comando para iniciar el servidor:
 
@@ -35,9 +32,9 @@ php -S localhost:1111 -t public
 
 ---
 
-**Notas adicionales:**
+**Nota:**
 
-- Si tienes errores relacionados con extensiones de PHP (como `pdo_mysql`), instálalas y habilítalas en tu archivo `php.ini`.
+- Si tienes errores con extensiones de PHP (como `pdo_mysql`), instálalas y habilítalas en tu archivo `php.ini`.
 
 ¡Eso fueron todos los pasos!  
 _¡Espero puedas disfrutar de mi aplicación web!_
