@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/css/pages/home.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
-
 <h2>Listado de personajes</h2>
 <div class="text-end mb-3">
     <a href="edit.php" class="btn btn-primary">

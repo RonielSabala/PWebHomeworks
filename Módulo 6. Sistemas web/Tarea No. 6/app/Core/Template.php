@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+
 class Template
 {
     public function apply(string $viewName, array $data = [])

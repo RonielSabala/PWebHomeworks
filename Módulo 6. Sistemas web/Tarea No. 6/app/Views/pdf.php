@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8" />
 </head>
-
 <body>
     <div class="card">
         <div class="badge">Personaje</div>
@@ -38,6 +36,7 @@
                 $personajes = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                 foreach ($personajes as $personaje) {
+                    // Excluir el personaje actual de la lista
                     if ($personaje->nombre == $nombre) {
                         continue;
                     }
@@ -49,5 +48,4 @@
         </div>
     </div>
 </body>
-
 </html>

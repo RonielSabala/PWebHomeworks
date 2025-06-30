@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\Template;
 use function App\Helpers\{showAlert, modifyCharacter};
 
+
 class DeleteController
 {
     public function handle(Template $template, $pdo)
