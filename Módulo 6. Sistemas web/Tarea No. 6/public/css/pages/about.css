@@ -1,0 +1,36 @@
+body {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.student-title {
+  font-size: 1.7em;
+  margin-bottom: 6px;
+  color: #2c3e50;
+}
+
+.student-name {
+  margin-bottom: 2px;
+}
+
+.student-mat {
+  color: #555;
+}
+
+.profile-img {
+  border-radius: 12px;
+  width: 250px;
+  margin: 18px auto 0;
+  display: block;
+  border: 2px solid #e1e1e1;
+}
+
+.video-title {
+  margin-top: 35px;
+  font-weight: bold;
+}
+
+.video-iframe {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}

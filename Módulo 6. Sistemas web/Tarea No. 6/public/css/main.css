@@ -1,0 +1,48 @@
+.page-title {
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.rick-morty-title {
+  font-size: 75px;
+  font-weight: bold;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: #42b5cb;
+  text-shadow: 2px 2px 0 #222, 4px 4px 0 #c0de44;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 80px;
+  border-radius: 15px;
+}
+
+.nav {
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.nav-link {
+  color: rgb(6, 112, 206);
+}
+
+.custom-link.nav-link:hover {
+  border-color: black;
+  border-bottom-color: white;
+}
+
+.custom-link.nav-link.active {
+  color: black;
+  border-color: black;
+  border-bottom-color: white;
+}
+
+.view-content {
+  min-height: 570px;
+  margin-top: 20px;
+  padding-top: 5px;
+}
+
+.developer {
+  font-size: 18px;
+}
