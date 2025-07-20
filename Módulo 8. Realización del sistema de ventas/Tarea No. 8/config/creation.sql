@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS la_rubia_db;
 CREATE DATABASE la_rubia_db;
 USE la_rubia_db;
 
--- Tabla de usuarios
+-- Usuarios
 drop table if exists usuarios;
 create table usuarios (
     id int auto_increment primary key,
@@ -10,13 +10,7 @@ create table usuarios (
     user_password varchar(255) not null
 );
 
-insert into usuarios (username, user_password)
-values (
-    'demo',
-    'tareafacil25'
-);
-
--- Tabla de artículos
+-- Artículos
 drop table if exists articulos;
 create table articulos (
     id int auto_increment primary key,
@@ -25,17 +19,7 @@ create table articulos (
     precio_unitario decimal(10,2) not null
 );
 
-INSERT INTO articulos (nombre, descripcion, precio_unitario) VALUES
-  ('Lapicero',   '', 2.50),
-  ('Cuaderno',   '', 5.00),
-  ('Borrador',   '', 1.20),
-  ('Regla',      '', 3.00),
-  ('Calculadora','', 15.00),
-  ('Marcador',   '', 4.75),
-  ('Mochila',    '', 25.00);
-
-
--- Tabla de facturas
+-- Facturas
 drop table if exists facturas;
 create table facturas (
     id int auto_increment primary key,
@@ -45,7 +29,7 @@ create table facturas (
     comentario text
 );
 
--- Tabla de detalles de facturas
+-- Detalles
 drop table if exists detalle_factura;
 create table detalle_factura (
     factura_id int not null,
@@ -57,3 +41,21 @@ create table detalle_factura (
     foreign key (factura_id) references facturas(id) on delete cascade,
     foreign key (articulo_id) references articulos(id) on delete cascade
 );
+
+-- Inserción de datos iniciales
+
+insert into usuarios (username, user_password)
+values (
+    'demo',
+    'tareafacil25'
+);
+
+insert into articulos (nombre, descripcion, precio_unitario)
+values
+  ('Lapicero',   '', 2.50),
+  ('Cuaderno',   '', 5.00),
+  ('Borrador',   '', 1.20),
+  ('Regla',      '', 3.00),
+  ('Calculadora','', 15.00),
+  ('Marcador',   '', 4.75),
+  ('Mochila',    '', 25.00);
