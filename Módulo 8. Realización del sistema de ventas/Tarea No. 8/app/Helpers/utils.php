@@ -9,6 +9,7 @@ use PDOException;
 class Utils
 {
     static private $invoiceSql = "SELECT * FROM facturas WHERE id = ?";
+    static private $userPasswordSql = "SELECT * FROM usuarios WHERE username = ?";
     static private $invoiceDetailsSql = "SELECT
         df.articulo_id,
         a.nombre,
@@ -52,6 +53,18 @@ class Utils
         try {
             $stmt = $pdo->prepare(self::$invoiceSql);
             $stmt->execute([$id]);
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            self::showAlert($e->getMessage(), 'danger');
+            return null;
+        }
+    }
+
+    public static function getUserPassByName($pdo, $username)
+    {
+        try {
+            $stmt = $pdo->prepare(self::$userPasswordSql);
+            $stmt->execute([$username]);
             return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             self::showAlert($e->getMessage(), 'danger');

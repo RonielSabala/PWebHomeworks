@@ -21,6 +21,8 @@ try {
             $pdo->exec($stmt);
         }
     }
+
+    echo "✔️  Base de datos instalada correctamente.\n";
 } catch (PDOException $e) {
     die("Error de BD: " . $e->getMessage());
 }

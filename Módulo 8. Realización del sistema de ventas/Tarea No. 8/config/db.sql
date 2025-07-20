@@ -52,10 +52,10 @@ values (
 
 insert into articulos (nombre, descripcion, precio_unitario)
 values
-  ('Lapicero',   '', 2.50),
-  ('Cuaderno',   '', 5.00),
-  ('Borrador',   '', 1.20),
-  ('Regla',      '', 3.00),
-  ('Calculadora','', 15.00),
-  ('Marcador',   '', 4.75),
-  ('Mochila',    '', 25.00);
+  ('Lapicero',   '', 5.00),
+  ('Cuaderno',   '', 200.00),
+  ('Borrador',   '', 5.00),
+  ('Regla',      '', 120.00),
+  ('Calculadora','', 150.00),
+  ('Marcador',   '', 30.00),
+  ('Mochila',    '', 540.00);

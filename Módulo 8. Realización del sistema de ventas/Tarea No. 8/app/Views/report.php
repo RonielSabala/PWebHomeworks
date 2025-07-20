@@ -1,7 +1,7 @@
 <div class="report-container">
     <div class="report-header">
         <h2>Reporte del día</h2>
-        <div class="date">Fecha: <?= date('d/m/y', strtotime($facturas[0]['fecha_emision'])) ?></div>
+        <div class="date">Fecha: <?= (empty($facturas)) ? date('d/m/y') : date('d/m/y', strtotime($facturas[0]['fecha_emision'])) ?></div>
     </div>
     <div class="report-body">
         <?php if (count($facturas) === 0): ?>

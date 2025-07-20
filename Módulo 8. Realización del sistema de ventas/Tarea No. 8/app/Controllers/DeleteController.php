@@ -28,6 +28,6 @@ class DeleteController
             exit;
         }
 
-        Utils::showAlert("¡Factura eliminada exitosamente!", 'success');
+        header('Location: /home.php');
     }
 }

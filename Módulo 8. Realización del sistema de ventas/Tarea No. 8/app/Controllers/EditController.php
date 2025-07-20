@@ -61,7 +61,7 @@ class EditController
                 }
             }
 
-            Utils::showAlert("Factura guardada exitosamente!");
+            header('Location: /home.php');
             exit;
         }
 

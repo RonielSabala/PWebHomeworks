@@ -5,6 +5,12 @@ namespace App\Core;
 
 class Template
 {
+    /** 
+     * Controla si se incluye o no la partial de navegación 
+     * @var bool
+     */
+    public static $showNav = true;
+
     public function apply(string $viewName, array $data = [])
     {
         echo '
@@ -19,7 +25,11 @@ class Template
     {
         $partials = __DIR__ . '/../Views/Partials/';
         include $partials . '_header.php';
-        include $partials . '_nav.php';
+
+        // Sólo incluimos la navegación si la bandera está en true
+        if (self::$showNav) {
+            include $partials . '_nav.php';
+        }
     }
 
     public function __destruct()
