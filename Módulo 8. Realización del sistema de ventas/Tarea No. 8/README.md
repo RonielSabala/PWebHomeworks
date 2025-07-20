@@ -6,15 +6,15 @@ _Requisitos_:
 
 ## 1. Creación de la base de datos
 
-Para ello, ejecuta el siguiente archivo:
+Para ello, ejecuta el siguiente comando:
 
 ```bash
-php config\install.php
+php config/install.php
 ```
 
 ## 2. Conexión con la base de datos
 
-Configura los datos de conexión en este archivo: `/config/db_config.php`.
+Configura los datos de conexión en el archivo `/config/db_config.php`.
 
 ## 3. Ejecución
 

@@ -14,9 +14,8 @@ class Router
             session_start();
         }
 
-        // Cerramos la sesión y vamos al login
+        // Cerrar sesión e ir al login
         if (!empty($_GET['logout'])) {
-            // Limpiar session
             $_SESSION = [];
             if (ini_get('session.use_cookies')) {
                 $params = session_get_cookie_params();

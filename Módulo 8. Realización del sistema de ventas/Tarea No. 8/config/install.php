@@ -10,6 +10,7 @@ if (!$sql) {
     die("No se pudo leer el archivo SQL.");
 }
 
+// Crear la base de datos
 try {
     $pdo = new PDO("mysql:host=$host", $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
