@@ -17,10 +17,11 @@ class EditController
             $total = $_POST['total'];
             $comentario = $_POST['comentario'];
 
-            if (empty($id)) {
+            $isNew = empty($id);
+            if ($isNew) {
                 // Crear una nueva factura
-                $sql = "INSERT INTO facturas (fecha_emision, nombre_cliente, total, comentario) VALUES (?, ?, ?, ?)";
-                $params = [$fecha_emision, $nombre_cliente, $total, $comentario];
+                $sql = "INSERT INTO facturas (nombre_cliente, total, comentario) VALUES (?, ?, ?)";
+                $params = [$nombre_cliente, $total, $comentario];
             } else {
                 // Actualizar la factura
                 $sql = "UPDATE facturas SET fecha_emision = ?, nombre_cliente = ?, total = ?, comentario = ? WHERE id = ?";
@@ -31,7 +32,7 @@ class EditController
                 exit;
             }
 
-            if (empty($id)) {
+            if ($isNew) {
                 $id = $pdo->lastInsertId();
             } else {
                 // Eliminar detalles viejos

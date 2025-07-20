@@ -20,8 +20,8 @@
                     <tr>
                         <td><?= htmlspecialchars($d['nombre']) ?></td>
                         <td><?= intval($d['cantidad']) ?></td>
-                        <td><?= number_format((float)$d['precio_unitario'], 2) ?> €</td>
-                        <td><?= number_format($d['cantidad'] * (float)$d['precio_unitario'], 2) ?> €</td>
+                        <td><?= number_format((float)$d['precio_unitario'], 2) ?> $RD</td>
+                        <td><?= number_format($d['cantidad'] * (float)$d['precio_unitario'], 2) ?> $RD</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -29,9 +29,9 @@
     </div>
 
     <div class="totals">
-        <div><span class="label">Subtotal:</span><span class="value"><?= number_format((float)$total - (float)$total * 0.16, 2) ?> €</span></div>
-        <div><span class="label">ITBIS (16%):</span><span class="value"><?= number_format((float)$total * 0.16, 2) ?> €</span></div>
-        <div class="total"><span class="label">Total:</span><span class="value"><?= number_format((float)$total, 2) ?> €</span></div>
+        <div><span class="label">Subtotal:</span><span class="value"><?= number_format((float)$total - (float)$total * 0.16, 2) ?> $RD</span></div>
+        <div><span class="label">ITBIS (16%):</span><span class="value"><?= number_format((float)$total * 0.16, 2) ?> $RD</span></div>
+        <div class="total"><span class="label">Total:</span><span class="value"><?= number_format((float)$total, 2) ?> $RD</span></div>
     </div>
 
     <?php if (!empty($comentario)): ?>

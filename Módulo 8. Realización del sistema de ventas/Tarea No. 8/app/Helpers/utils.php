@@ -8,12 +8,16 @@ use PDOException;
 
 class Utils
 {
-    static private $invoiceSql = 'SELECT * FROM facturas WHERE id = ?';
-    static private $invoiceDetailsSql = "SELECT df.articulo_id, a.nombre, df.cantidad, df.precio_unitario
-                    FROM detalle_factura df
-                    JOIN articulos a ON df.articulo_id = a.id
-                    WHERE df.factura_id = ?";
-
+    static private $invoiceSql = "SELECT * FROM facturas WHERE id = ?";
+    static private $invoiceDetailsSql = "SELECT
+        df.articulo_id,
+        a.nombre,
+        df.cantidad,
+        df.precio_unitario
+    FROM detalle_factura df
+    JOIN articulos a ON df.articulo_id = a.id
+    WHERE df.factura_id = ?
+    ";
 
     public static function getActiveClass(string $page): string
     {
@@ -30,7 +34,6 @@ class Utils
         </div>
         ";
     }
-
     public static function executeSql($pdo, $sql, $params)
     {
         try {

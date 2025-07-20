@@ -1,3 +1,117 @@
-h2 {
-  color: #444;
+:root {
+  --bg: #fff;
+  --text: #333;
+  --muted: #666;
+  --accent: #28a745;
+  --border: #e0e0e0;
+  --radius: 6px;
+  --pad: 16px;
+  --font: "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.report-container {
+  max-width: 900px;
+  margin: auto;
+  background: var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.report-header {
+  padding: var(--pad);
+  border-bottom: 1px solid var(--border);
+}
+
+.report-header h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.report-header .date {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.report-body {
+  padding: var(--pad);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--pad);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+th {
+  background: #fafafb;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.report-footer {
+  padding: var(--pad);
+  background: #fafafb;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+
+.report-footer .label {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.report-footer .value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .report-header h1 {
+    font-size: 1.6rem;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .report-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .report-footer .value {
+    margin-top: 4px;
+  }
 }

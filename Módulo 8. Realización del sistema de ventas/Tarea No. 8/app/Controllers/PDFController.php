@@ -11,6 +11,11 @@ class PdfController
 {
     public function handle(Template $template, $pdo)
     {
+        self::downloadPDF($pdo);
+    }
+
+    public static function downloadPDF($pdo)
+    {
         $data = Utils::getAllInvoiceDetails($pdo);
 
         // Iniciar el buffer y cargar la vista como php

@@ -123,6 +123,12 @@
     });
 
     function addRow(detalles = null) {
+        // Maximum number of rows exceeded
+        const current_items = document.querySelectorAll('.item').length
+        if (current_items > 0 && current_items === <?= count($articulos); ?>) {
+            return;
+        }
+
         const row = document.getElementById('item-template').content.firstElementChild.cloneNode(true);
 
         // Elementos
@@ -149,7 +155,7 @@
         });
 
         // Al eliminarse
-        if (document.querySelectorAll('.item').length === 0) {
+        if (current_items === 0) {
             btnRemove.disabled = true;
         } else {
             btnRemove.addEventListener('click', () => {
@@ -200,13 +206,26 @@
     }
 
     function updateSelects() {
-        const selects = [...document.querySelectorAll('.item-select')];
+        const selects = Array.from(document.querySelectorAll('.item-select'));
         const chosen = selects.map(s => s.value).filter(v => v !== '');
+
         selects.forEach(s => {
-            Array.from(s.options).forEach(opt => {
-                if (!opt.value) return;
-                opt.disabled = chosen.includes(opt.value) && s.value !== opt.value;
-            });
+            const currentValue = s.value;
+            const allOptions = Array.from(s.querySelectorAll('option'));
+
+            // Encuentra la opción en blanco
+            const blank = allOptions.find(o => o.value === '');
+
+            // Filtra para mantener solo las no usadas o la seleccionada actualmente
+            const allowed = allOptions.filter(o =>
+                o.value === '' ||
+                o.value === currentValue ||
+                (o.value !== '' && !chosen.includes(o.value))
+            );
+
+            // Reemplaza las opciones
+            s.innerHTML = '';
+            allowed.forEach(o => s.appendChild(o));
         });
     }
 </script>
