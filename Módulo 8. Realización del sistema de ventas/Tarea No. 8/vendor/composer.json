@@ -1,0 +1,9 @@
+{
+  "name": "ronielsabala/tarea-no.8",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.website-title {
+  font-family: "Pacifico", cursive, sans-serif;
+  font-size: 3rem;
+  color: #fdf4a9;
+  text-shadow: 2px 2px 8px #d1a927;
+  letter-spacing: 3px;
+  font-weight: 700;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.website-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 8px auto 0 auto;
+  background: linear-gradient(90deg, #ffe97a, #bfa641);
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 80px;
+  border-radius: 15px;
+}
+
+.nav {
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.nav-link {
+  color: rgb(6, 112, 206);
+}
+
+.custom-link.nav-link:hover {
+  border-color: black;
+  border-bottom-color: white;
+}
+
+.custom-link.nav-link.active {
+  color: black;
+  border-color: black;
+  border-bottom-color: white;
+}
+
+.view-content {
+  min-height: 570px;
+  margin-top: 20px;
+  padding-top: 5px;
+}
+
+.developer {
+  font-size: 18px;
+}
