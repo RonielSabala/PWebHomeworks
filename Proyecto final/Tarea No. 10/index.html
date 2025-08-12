@@ -4,50 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Login</title>
-    <style>
-      body {
-        font-family: Arial, system-ui;
-        margin: 0;
-        background: #f3f4f6;
-      }
-      .wrap {
-        max-width: 420px;
-        margin: 8vh auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      }
-      input,
-      select {
-        width: 100%;
-        padding: 9px;
-        margin: 8px 0;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-      }
-      .row {
-        display: flex;
-        gap: 8px;
-      }
-      button {
-        padding: 10px;
-        border-radius: 6px;
-        border: 0;
-        cursor: pointer;
-      }
-      .primary {
-        background: #2563eb;
-        color: #fff;
-      }
-      .muted {
-        background: #e5e7eb;
-      }
-      label.small {
-        font-size: 13px;
-        color: #444;
-      }
-    </style>
+    <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
     <main class="wrap">
@@ -84,46 +41,6 @@
       </p>
     </main>
 
-    <script>
-      // lógica de redirección por rol (prototipo)
-      const btnLogin = document.getElementById("btnLogin");
-      const btnRegister = document.getElementById("btnRegister");
-      const btnQuickSuper = document.getElementById("btnQuickSuper");
-
-      btnLogin.addEventListener("click", () => {
-        const role = document.getElementById("role").value;
-        const email = document.getElementById("email").value.trim();
-        const pass = document.getElementById("pass").value.trim();
-
-        if (!email || !pass) {
-          alert("Ingresa correo y contraseña (simulado).");
-          return;
-        }
-
-        // Redirección simple según rol
-        if (role === "reportero") {
-          // panel para reporteros
-          location.href = "user/dashboard.html";
-        } else if (role === "usuario") {
-          // panel para usuarios (solo visualización)
-          location.href = "viewer/dashboard.html";
-        } else if (role === "super") {
-          // validador
-          location.href = "super/index.html";
-        } else {
-          // fallback
-          location.href = "index.html";
-        }
-      });
-
-      btnRegister.addEventListener(
-        "click",
-        () => (location.href = "auth/register.html")
-      );
-      btnQuickSuper.addEventListener(
-        "click",
-        () => (location.href = "super/index.html")
-      );
-    </script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

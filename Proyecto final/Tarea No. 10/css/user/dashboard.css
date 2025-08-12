@@ -1,0 +1,50 @@
+body {
+  font-family: system-ui, Arial;
+  background: #f8fafc;
+  margin: 0;
+}
+
+header {
+  background: #111827;
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.cta {
+  background: #2563eb;
+  color: #fff;
+}
+
+nav button {
+  margin-left: 8px;
+  background: #e5e7eb;
+}

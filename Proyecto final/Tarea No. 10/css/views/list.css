@@ -1,0 +1,33 @@
+body {
+  font-family: Arial;
+  background: #f8fafc;
+  margin: 0;
+}
+
+header {
+  background: #111827;
+  color: #fff;
+  padding: 10px;
+}
+
+.list {
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 8px;
+}
+
+.item {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 6px;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+}

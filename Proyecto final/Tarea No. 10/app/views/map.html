@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mapa de Incidencias</title>
+    <link rel="stylesheet" href="/css/views/map.css" />
+  </head>
+  <body>
+    <header>
+      <button onclick="location.href='../user/dashboard.html'">← Volver</button>
+      <h1>Mapa de incidencias (últimas 24 h)</h1>
+    </header>
+
+    <div class="controls" aria-hidden="false">
+      <div class="group">
+        <label for="filterType">Tipo:</label>
+        <select id="filterType" title="Filtrar por tipo">
+          <option value="all">Todos</option>
+          <option value="robo">Robo</option>
+          <option value="accidente">Accidente</option>
+          <option value="pelea">Pelea</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label class="switch"
+          ><input id="toggleCluster" type="checkbox" checked /> Agrupar
+          marcadores (clustering)</label
+        >
+      </div>
+
+      <div class="group" style="margin-left: auto">
+        <label for="search">Buscar título:</label>
+        <input id="search" type="search" placeholder="Buscar..." />
+        <button
+          id="btnSearch"
+          style="
+            padding: 8px;
+            border-radius: 6px;
+            border: 0;
+            background: var(--accent);
+            color: #fff;
+            margin-left: 6px;
+            cursor: pointer;
+          "
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <div id="map" aria-label="Área del mapa (placeholder)">
+        <!-- marcadores y clusters se insertan aquí -->
+        <div class="legend" aria-hidden="false">
+          <div style="font-weight: 600; margin-bottom: 6px">Leyenda</div>
+          <div class="row">
+            <span class="dot" style="background: #ef4444"></span> Robo
+          </div>
+          <div class="row">
+            <span class="dot" style="background: #f59e0b"></span> Accidente
+          </div>
+          <div class="row">
+            <span class="dot" style="background: #6b21a8"></span> Pelea
+          </div>
+          <div style="margin-top: 8px; font-size: 12px; color: var(--muted)">
+            Haz click en un marcador para ver detalles.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de detalle -->
+    <div id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-card" role="document">
+        <h3 id="modalTitle">Incidencia</h3>
+        <div id="modalWhen" style="color: var(--muted); font-size: 13px">
+          Fecha • Provincia • Municipio
+        </div>
+        <p id="modalDesc" style="margin-top: 10px">
+          Descripción breve de la incidencia.
+        </p>
+
+        <div class="modal-meta">
+          <div>
+            <strong id="modalMuertos">0</strong>
+            <div style="font-size: 12px; color: var(--muted)">Muertos</div>
+          </div>
+          <div>
+            <strong id="modalHeridos">0</strong>
+            <div style="font-size: 12px; color: var(--muted)">Heridos</div>
+          </div>
+          <div>
+            <strong id="modalPerdida">RD$ 0</strong>
+            <div style="font-size: 12px; color: var(--muted)">Pérdida est.</div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            onclick="closeModal()"
+            style="
+              padding: 8px;
+              border-radius: 6px;
+              border: 0;
+              background: #e5e7eb;
+              cursor: pointer;
+            "
+          >
+            Cerrar
+          </button>
+          <button
+            id="btnView"
+            onclick="goToIncident()"
+            style="
+              padding: 8px;
+              border-radius: 6px;
+              border: 0;
+              background: var(--accent);
+              color: #fff;
+              cursor: pointer;
+            "
+          >
+            Ver detalles
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/views/map.js"></script>
+  </body>
+</html>

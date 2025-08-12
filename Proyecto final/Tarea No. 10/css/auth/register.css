@@ -1,0 +1,37 @@
+body {
+  font-family: system-ui, Arial;
+  background: #fafafa;
+  color: #111;
+}
+
+.card {
+  max-width: 520px;
+  margin: 6vh auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 0;
+  background: #059669;
+  color: #fff;
+  cursor: pointer;
+}
+
+.small {
+  font-size: 13px;
+  color: #555;
+}

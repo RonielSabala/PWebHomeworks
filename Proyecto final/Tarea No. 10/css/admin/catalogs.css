@@ -1,0 +1,39 @@
+body {
+  font-family: Arial;
+  background: #fff;
+  margin: 0;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 18px auto;
+  padding: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  flex: 1;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  margin-top: 8px;
+}
