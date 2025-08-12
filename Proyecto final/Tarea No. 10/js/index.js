@@ -8,31 +8,31 @@ btnLogin.addEventListener("click", () => {
   const pass = document.getElementById("pass").value.trim();
 
   if (!email || !pass) {
-    alert("Ingresa correo y contraseña (simulado).");
+    alert("Ingresa correo y contraseña.");
     return;
   }
 
   // Redirección simple según rol
   if (role === "reportero") {
     // panel para reporteros
-    location.href = "user/dashboard.html";
+    location.href = "/app/user/dashboard.html";
   } else if (role === "usuario") {
     // panel para usuarios (solo visualización)
-    location.href = "viewer/dashboard.html";
+    location.href = "/app/viewer/dashboard.html";
   } else if (role === "super") {
     // validador
-    location.href = "super/index.html";
+    location.href = "/app/super/index.html";
   } else {
     // fallback
-    location.href = "index.html";
+    location.href = "/index.html";
   }
 });
 
 btnRegister.addEventListener(
   "click",
-  () => (location.href = "auth/register.html")
+  () => (location.href = "/app/auth/register.html")
 );
 btnQuickSuper.addEventListener(
   "click",
-  () => (location.href = "super/index.html")
+  () => (location.href = "/app/super/index.html")
 );
