@@ -6,44 +6,34 @@
     <title>Login</title>
     <style>
       body {
-        font-family: system-ui, Arial;
+        font-family: Arial, system-ui;
         margin: 0;
         background: #f3f4f6;
-        color: #111;
       }
       .wrap {
         max-width: 420px;
         margin: 8vh auto;
-        padding: 24px;
+        padding: 20px;
         background: #fff;
         border-radius: 8px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       }
-      h1 {
-        margin: 0 0 12px;
-        font-size: 20px;
-      }
-      label {
-        display: block;
-        margin: 12px 0 6px;
-        font-size: 13px;
-      }
-      input {
+      input,
+      select {
         width: 100%;
-        padding: 10px;
+        padding: 9px;
+        margin: 8px 0;
         border: 1px solid #ddd;
         border-radius: 6px;
       }
       .row {
         display: flex;
         gap: 8px;
-        margin-top: 16px;
       }
       button {
-        flex: 1;
         padding: 10px;
-        border: 0;
         border-radius: 6px;
+        border: 0;
         cursor: pointer;
       }
       .primary {
@@ -53,62 +43,87 @@
       .muted {
         background: #e5e7eb;
       }
-      .links {
-        margin-top: 12px;
-        text-align: center;
-      }
-      .links button {
-        background: none;
-        border: none;
-        color: #2563eb;
-        cursor: pointer;
+      label.small {
+        font-size: 13px;
+        color: #444;
       }
     </style>
   </head>
   <body>
     <main class="wrap">
-      <h1>Iniciar sesión</h1>
-      <p>Ingresa cualquier dato para continuar.</p>
-      <label for="email">Correo</label>
+      <h2>Iniciar sesión</h2>
+      <p class="small">Elige rol y haz login.</p>
+
+      <label class="small" for="role">Entrar como</label>
+      <select id="role">
+        <option value="usuario">Usuario (solo ver)</option>
+        <option value="reportero" selected>Reportero (puede reportar)</option>
+        <option value="super">Validador (/super)</option>
+      </select>
+
+      <label class="small" for="email">Correo</label>
       <input id="email" placeholder="tucorreo@ejemplo.com" />
-      <label for="pass">Contraseña</label>
-      <input id="pass" type="password" placeholder="••••••" />
 
-      <div class="row">
-        <button id="btnLogin" class="primary">Entrar</button>
-        <button id="btnRegister" class="muted">Registrarme</button>
+      <label class="small" for="pass">Contraseña</label>
+      <input id="pass" type="password" placeholder="contraseña" />
+
+      <div class="row" style="margin-top: 12px">
+        <button id="btnLogin" class="primary" style="flex: 1">Entrar</button>
+        <button id="btnRegister" class="muted" style="flex: 1">
+          Registrarme
+        </button>
       </div>
 
-      <div class="links">
-        <button id="btnSuper">Entrar como validador</button>
-      </div>
+      <p style="text-align: center; margin-top: 10px">
+        <button
+          id="btnQuickSuper"
+          style="background: none; border: 0; color: #2563eb; cursor: pointer"
+        >
+          Entrar rápido como /super
+        </button>
+      </p>
     </main>
 
     <script>
-      document.getElementById("btnLogin").addEventListener("click", () => {
-        // validación simple
-        const e = document.getElementById("email").value.trim();
-        const p = document.getElementById("pass").value.trim();
-        if (!e || !p) {
-          alert(
-            "Ingrese correo y contraseña."
-          );
+      // lógica de redirección por rol (prototipo)
+      const btnLogin = document.getElementById("btnLogin");
+      const btnRegister = document.getElementById("btnRegister");
+      const btnQuickSuper = document.getElementById("btnQuickSuper");
+
+      btnLogin.addEventListener("click", () => {
+        const role = document.getElementById("role").value;
+        const email = document.getElementById("email").value.trim();
+        const pass = document.getElementById("pass").value.trim();
+
+        if (!email || !pass) {
+          alert("Ingresa correo y contraseña (simulado).");
           return;
         }
-        window.location = "/user/dashboard.html";
+
+        // Redirección simple según rol
+        if (role === "reportero") {
+          // panel para reporteros
+          location.href = "user/dashboard.html";
+        } else if (role === "usuario") {
+          // panel para usuarios (solo visualización)
+          location.href = "viewer/dashboard.html";
+        } else if (role === "super") {
+          // validador
+          location.href = "super/index.html";
+        } else {
+          // fallback
+          location.href = "index.html";
+        }
       });
-      document
-        .getElementById("btnRegister")
-        .addEventListener(
-          "click",
-          () => (window.location = "auth/register.html")
-        );
-      document
-        .getElementById("btnSuper")
-        .addEventListener(
-          "click",
-          () => (window.location = "super/index.html")
-        );
+
+      btnRegister.addEventListener(
+        "click",
+        () => (location.href = "auth/register.html")
+      );
+      btnQuickSuper.addEventListener(
+        "click",
+        () => (location.href = "super/index.html")
+      );
     </script>
   </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel — Usuario</title>
+    <style>
+      body {
+        font-family: Arial, system-ui;
+        margin: 0;
+        background: #f8fafc;
+      }
+      header {
+        background: #0f172a;
+        color: #fff;
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .wrap {
+        max-width: 1000px;
+        margin: 18px auto;
+        padding: 12px;
+      }
+      .card {
+        background: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 8px;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div><strong>SuperFácil</strong> — Panel de Usuario</div>
+      <div>
+        <button onclick="location.href='../index.html'">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="card">
+        <h3>Explorar incidencias</h3>
+        <p>
+          Como usuario puedes ver el mapa y la lista de incidencias recientes.
+        </p>
+        <div style="display: flex; gap: 8px; margin-top: 8px">
+          <button onclick="location.href='../views/map.html'">Ver mapa</button>
+          <button onclick="location.href='../views/list.html'">
+            Ver lista
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Síntesis</h3>
+        <p style="color: #555">Incidencias destacadas, filtros y noticias.</p>
+      </div>
+
+      <div class="card">
+        <h3>Acceso rápido</h3>
+        <p style="font-size: 14px; color: #444">
+          ¿Quieres reportar? Crea una cuenta como reportero.
+        </p>
+        <button onclick="location.href='../auth/register.html'">
+          Registrarme como reportero
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
