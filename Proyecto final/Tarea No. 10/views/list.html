@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lista</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f8fafc;
+        margin: 0;
+      }
+      header {
+        background: #111827;
+        color: #fff;
+        padding: 10px;
+      }
+      .list {
+        max-width: 900px;
+        margin: 16px auto;
+        padding: 8px;
+      }
+      .item {
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        padding: 6px;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button onclick="location.href='../user/dashboard.html'">← Volver</button>
+    </header>
+    <div class="list">
+      <div class="item">
+        <div>
+          <strong>Robo - Sector X</strong>
+          <div style="font-size: 12px; color: #666">Hoy • Provincia A</div>
+        </div>
+        <button onclick="location.href='incident.html'">Ver</button>
+      </div>
+      <div class="item">
+        <div>
+          <strong>Accidente - Carretera Y</strong>
+          <div style="font-size: 12px; color: #666">Ayer • Provincia C</div>
+        </div>
+        <button onclick="location.href='incident.html'">Ver</button>
+      </div>
+    </div>
+  </body>
+</html>

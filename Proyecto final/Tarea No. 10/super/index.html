@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Validador</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f3f4f6;
+        margin: 0;
+      }
+      header {
+        background: #111827;
+        color: #fff;
+        padding: 10px;
+      }
+      .main {
+        max-width: 1000px;
+        margin: 14px auto;
+        padding: 12px;
+      }
+      .box {
+        background: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 7px;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      Validador
+      <button style="float: right" onclick="location.href='../index.html'">
+        Salir
+      </button>
+    </header>
+    <div class="main">
+      <div class="box">
+        <h4>Reportes pendientes</h4>
+        <ul>
+          <li>
+            Robo - Sector X
+            <button onclick="alert('Validar')">Validar</button>
+          </li>
+        </ul>
+      </div>
+      <div class="box">
+        <button onclick="location.href='../admin/catalogs.html'">
+          Ir a Catálogos
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Registro</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        background: #fafafa;
+        color: #111;
+      }
+      .card {
+        max-width: 520px;
+        margin: 6vh auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px;
+        border-radius: 6px;
+        border: 0;
+        background: #059669;
+        color: #fff;
+        cursor: pointer;
+      }
+      .small {
+        font-size: 13px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Registro</h2>
+      <input placeholder="Nombre completo" />
+      <input placeholder="Correo electrónico" />
+      <select>
+        <option>Seleccionar provincia</option>
+        <option>Provincia A</option>
+        <option>Provincia B</option>
+      </select>
+      <div style="display: flex; gap: 8px">
+        <button id="btnCreate">Crear cuenta</button>
+        <button id="btnBack" style="background: #e5e7eb; color: #111">
+          Volver
+        </button>
+      </div>
+    </div>
+    <script>
+      document.getElementById("btnCreate").addEventListener("click", () => {
+        alert("Cuenta creada. Serás llevado al panel.");
+        window.location = "/user/dashboard.html";
+      });
+      document
+        .getElementById("btnBack")
+        .addEventListener("click", () => (window.location = "../index.html"));
+    </script>
+  </body>
+</html>

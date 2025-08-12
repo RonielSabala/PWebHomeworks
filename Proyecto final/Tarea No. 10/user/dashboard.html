@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel principal</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        background: #f8fafc;
+        margin: 0;
+      }
+      header {
+        background: #111827;
+        color: #fff;
+        padding: 14px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 24px auto;
+        padding: 0 16px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .card {
+        background: #fff;
+        padding: 14px;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      }
+      button {
+        padding: 10px;
+        border-radius: 8px;
+        border: 0;
+        cursor: pointer;
+      }
+      .cta {
+        background: #2563eb;
+        color: #fff;
+      }
+      nav button {
+        margin-left: 8px;
+        background: #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>Panel de Bienvenida</div>
+      <nav>
+        <button onclick="location.href='../views/map.html'">Mapa</button>
+        <button onclick="location.href='../views/list.html'">Lista</button>
+        <button onclick="location.href='../index.html'">Cerrar sesión</button>
+      </nav>
+    </header>
+    <main class="container">
+      <h2>Bienvenido</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Mis reportes</h3>
+          <p>12 enviados • 4 pendientes de validación</p>
+          <button class="cta" onclick="location.href='report.html'">
+            Nuevo reporte
+          </button>
+        </div>
+        <div class="card">
+          <h3>Atención</h3>
+          <p>Incidencias en las últimas 24h: 8</p>
+        </div>
+        <div class="card">
+          <h3>Accesos</h3>
+          <p>Enlaces rápidos</p>
+          <div style="margin-top: 10px">
+            <button onclick="location.href='../views/map.html'">
+              Ver mapa
+            </button>
+            <button onclick="location.href='../views/list.html'">
+              Ver lista
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

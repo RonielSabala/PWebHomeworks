@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reportar Incidencia</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        background: #f7fafc;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 4vh auto;
+        background: #fff;
+        padding: 18px;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 6px;
+        border: 1px solid #e6e6e6;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+      }
+      .row button {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h2>Nuevo Reporte</h2>
+      <input placeholder="Título de la incidencia" />
+      <select>
+        <option>Tipo de incidencia</option>
+        <option>Accidente</option>
+        <option>Robo</option>
+      </select>
+      <textarea rows="4" placeholder="Descripción"></textarea>
+      <div class="row">
+        <input placeholder="Provincia" />
+        <input placeholder="Municipio" />
+        <input placeholder="Barrio" />
+      </div>
+      <div class="row">
+        <input placeholder="Latitud" />
+        <input placeholder="Longitud" />
+      </div>
+      <div style="margin-top: 8px">
+        Adjuntar foto: <input type="file" disabled />
+      </div>
+      <div style="margin-top: 12px; display: flex; gap: 8px">
+        <button id="btnSend" style="background: #059669; color: #fff">
+          Enviar
+        </button>
+        <button onclick="location.href='dashboard.html'">Volver</button>
+      </div>
+    </div>
+    <script>
+      document.getElementById("btnSend").addEventListener("click", () => {
+        alert("Reporte enviado. Quedará pendiente de validación.");
+        window.location = "dashboard.html";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Catálogos</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #fff;
+        margin: 0;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 18px auto;
+        padding: 12px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+      }
+      .card {
+        flex: 1;
+        background: #f8fafc;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+      button {
+        padding: 8px;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <button onclick="location.href='../super/index.html'">← Volver</button>
+      <h3>Gestión de Catálogos</h3>
+      <div class="row">
+        <div class="card">
+          <strong>Provincias</strong>
+          <input placeholder="Nueva provincia" />
+          <button onclick="alert('Añadido')">Agregar</button>
+        </div>
+        <div class="card">
+          <strong>Tipos de incidencia</strong>
+          <input placeholder="Nuevo tipo (ej: Robo)" />
+          <button onclick="alert('Añadido')">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
